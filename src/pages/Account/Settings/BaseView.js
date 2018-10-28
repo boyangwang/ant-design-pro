@@ -74,7 +74,7 @@ class BaseView extends Component {
     if (currentUser.avatar) {
       return currentUser.avatar;
     }
-    const url = 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png';
+    const url = 'https://diary.sgp1.digitaloceanspaces.com/rob-avatar.png';
     return url;
   }
 
