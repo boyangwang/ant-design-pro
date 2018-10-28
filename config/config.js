@@ -2,7 +2,6 @@
 import os from 'os';
 import pageRoutes from './router.config';
 import webpackPlugin from './plugin.config';
-import defaultSettings from '../src/defaultSettings';
 
 const plugins = [
   [
@@ -59,9 +58,7 @@ export default {
   routes: pageRoutes,
   // Theme for antd
   // https://ant.design/docs/react/customize-theme-cn
-  theme: {
-    'primary-color': defaultSettings.primaryColor,
-  },
+  theme: 'src/theme.js',
   externals: {
     '@antv/data-set': 'DataSet',
   },
