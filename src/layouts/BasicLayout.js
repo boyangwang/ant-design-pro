@@ -12,11 +12,13 @@ import { formatMessage } from 'umi/locale';
 import SiderMenu from '@/components/SiderMenu';
 import Authorized from '@/utils/Authorized';
 import SettingDrawer from '@/components/SettingDrawer';
+import { ApolloProvider } from 'react-apollo';
 import logo from '../assets/icon-256.png';
 import Footer from './Footer';
 import Header from './Header';
 import Context from './MenuContext';
 import Exception403 from '../pages/Exception/403';
+import { graphqlClient } from '@/services/api';
 
 const { Content } = Layout;
 
@@ -274,16 +276,18 @@ class BasicLayout extends React.PureComponent {
     );
     return (
       <React.Fragment>
-        <DocumentTitle title={this.getPageTitle(pathname)}>
-          <ContainerQuery query={query}>
-            {params => (
-              <Context.Provider value={this.getContext()}>
-                <div className={classNames(params)}>{layout}</div>
-              </Context.Provider>
-            )}
-          </ContainerQuery>
-        </DocumentTitle>
-        {this.renderSettingDrawer()}
+        <ApolloProvider client={graphqlClient}>
+          <DocumentTitle title={this.getPageTitle(pathname)}>
+            <ContainerQuery query={query}>
+              {params => (
+                <Context.Provider value={this.getContext()}>
+                  <div className={classNames(params)}>{layout}</div>
+                </Context.Provider>
+              )}
+            </ContainerQuery>
+          </DocumentTitle>
+          {this.renderSettingDrawer()}
+        </ApolloProvider>
       </React.Fragment>
     );
   }

@@ -1,5 +1,11 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
+import ApolloClient from 'apollo-boost';
+import gql from 'graphql-tag';
+
+export const graphqlClient = new ApolloClient({
+  uri: 'https://w5xlvm3vzz.lp.gql.zone/graphql',
+});
 
 export async function queryProjectNotice() {
   return request('/api/project/notice');
@@ -118,7 +124,16 @@ export async function fakeRegister(params) {
 }
 
 export async function queryNotices() {
-  return request('/api/notices');
+  // return request('/api/notices');
+  return graphqlClient.query({
+    query: gql`
+      {
+        rates(currency: "USD") {
+          currency
+        }
+      }
+    `,
+  });
 }
 
 export async function getFakeCaptcha(mobile) {
