@@ -2,13 +2,13 @@
 export default {
   // 支持值为 Object 和 Array
   'GET /api/currentUser': {
-    name: 'Serati Ma',
+    name: 'Rob',
     avatar: 'https://diary.sgp1.digitaloceanspaces.com/rob-avatar.png',
     userid: '00000001',
     email: 'antdesign@alipay.com',
-    signature: '海纳百川，有容乃大',
-    title: '交互专家',
-    group: '蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED',
+    signature: 'Chat.Chat',
+    title: 'CEO',
+    group: 'Chat.Chat－某某某事业群－某某平台部－某某技术部－产品',
     tags: [
       {
         key: '0',

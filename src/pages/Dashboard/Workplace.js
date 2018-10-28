@@ -130,7 +130,7 @@ class Workplace extends PureComponent {
               ，祝你开心每一天！
             </div>
             <div>
-              {currentUser.title} |{currentUser.group}
+              {currentUser.title} | {currentUser.group}
             </div>
           </div>
         </div>
